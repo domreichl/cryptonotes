@@ -7,7 +7,7 @@ from tkinter import *
 from tkinter import filedialog, messagebox
 
 class Cryptonotes(Frame):
-    ''' A simple notepad application with encryption function '''
+    ''' Builds a simple notepad application with encryption function (substitution cipher). '''
     
     def __init__(self, master=None, file=None):
         '''
@@ -110,7 +110,7 @@ class Cryptonotes(Frame):
         self.text.insert('1.0', normal_text)
 
     def decrypt(self, encrypted_text):
-        ''' Decrypts text. '''
+        ''' Decrypts text by resubstituting characters. '''
         
         if encrypted_text.startswith("***encrypted file***"): # check whether file is actually encrypted
             encrypted_text = encrypted_text.strip("***encrypted file***") # remove encryption tag
@@ -142,7 +142,7 @@ class Cryptonotes(Frame):
                 messagebox.showinfo("Dom's Cryptonotes", "File encrypted and saved.")
 
     def encrypt(self, normal_text):
-        ''' Encrypts text. '''
+        ''' Encrypts text with substitution cipher. '''
         
         charlist = [i for i in self.characters] # turns string into list
         shuffle(charlist) # randomizes characters in list
